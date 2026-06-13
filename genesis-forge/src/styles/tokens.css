@@ -1,0 +1,153 @@
+/* =============================================================================
+   GENESIS FORGE — DESIGN TOKENS
+   Single source of truth. No raw hex values belong in components.
+   ============================================================================= */
+
+:root {
+  /* ---------------------------------------------------------------------------
+     COLOR — Surfaces (dark, layered; never flat black)
+     A blue-violet-tinted obsidian system that builds depth through tone.
+  --------------------------------------------------------------------------- */
+  --color-background: #0a0b0f;          /* obsidian / deep blue-black           */
+  --color-background-deep: #07080c;     /* used for vignette + footer base      */
+  --color-surface: #12141b;             /* graphite panel                       */
+  --color-surface-raised: #1a1d27;      /* charcoal card / raised surface       */
+  --color-surface-interactive: #232733; /* hover / pressed surface              */
+  --color-violet-wash: #14121c;         /* subtle violet-black for gradients    */
+
+  /* Borders */
+  --color-border: rgba(244, 242, 236, 0.08);
+  --color-border-strong: rgba(244, 242, 236, 0.16);
+  --color-border-hot: rgba(255, 107, 44, 0.45);   /* molten edge highlight      */
+  --color-border-cool: rgba(70, 198, 230, 0.40);  /* precision edge highlight   */
+
+  /* Text (soft ivory, never pure white; muted reserved for non-essential meta) */
+  --color-text-primary: #f4f2ec;
+  --color-text-secondary: #b9bcc7;
+  --color-text-muted: #868a99;
+
+  /* ---------------------------------------------------------------------------
+     COLOR — Accents (dual temperature, used semantically)
+     Molten = creation / primary action.  Cyan = precision / digital.
+  --------------------------------------------------------------------------- */
+  --color-primary: #ff6b2c;             /* molten orange — primary action       */
+  --color-primary-hover: #ff7e45;
+  --color-primary-press: #ec5a1d;
+  --color-on-primary: #0a0b0f;          /* dark label on hot metal (high contrast) */
+
+  --color-secondary: #46c6e6;           /* precision cyan — technical / digital  */
+  --color-secondary-hover: #62d4f0;
+
+  --color-accent: #8b7be8;              /* restrained violet highlight (sparing) */
+
+  --color-success: #4ade9b;
+  --color-error: #ff5d70;
+  --color-focus: #62d4f0;               /* focus ring                            */
+
+  /* Molten gradient (deep, material, cinematic — not a SaaS blue/purple) */
+  --gradient-molten: linear-gradient(135deg, #ffb23e 0%, #ff6b2c 48%, #e8431c 100%);
+  --gradient-ember: linear-gradient(180deg, rgba(255, 107, 44, 0.22), rgba(255, 107, 44, 0));
+  --gradient-cool: linear-gradient(135deg, #62d4f0 0%, #46c6e6 60%, #2f93c7 100%);
+  --gradient-surface: linear-gradient(180deg, #1a1d27 0%, #12141b 100%);
+  --gradient-chamber:
+    radial-gradient(120% 90% at 50% -10%, rgba(255, 107, 44, 0.10) 0%, rgba(255, 107, 44, 0) 55%),
+    radial-gradient(90% 70% at 85% 10%, rgba(139, 123, 232, 0.08) 0%, rgba(139, 123, 232, 0) 50%),
+    radial-gradient(80% 80% at 0% 100%, rgba(70, 198, 230, 0.06) 0%, rgba(70, 198, 230, 0) 50%);
+
+  /* ---------------------------------------------------------------------------
+     TYPOGRAPHY
+     Display: Archivo (engineered grotesque).  Body: Hanken Grotesk.
+     Technical: JetBrains Mono (specs, labels, eyebrows).
+  --------------------------------------------------------------------------- */
+  --font-display: 'Archivo', system-ui, sans-serif;
+  --font-body: 'Hanken Grotesk', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+
+  /* Fluid type scale (clamp: min @375px → max @1440px) */
+  --text-display: clamp(2.75rem, 1.6rem + 5.6vw, 5.5rem);
+  --text-h1: clamp(2.25rem, 1.5rem + 3.6vw, 4rem);
+  --text-h2: clamp(1.75rem, 1.25rem + 2.2vw, 2.75rem);
+  --text-h3: clamp(1.3rem, 1.05rem + 1vw, 1.6rem);
+  --text-body-lg: clamp(1.08rem, 1rem + 0.4vw, 1.3rem);
+  --text-body: 1rem;            /* 16px — prevents iOS auto-zoom */
+  --text-small: 0.9rem;
+  --text-label: 0.78rem;        /* mono labels */
+  --text-meta: 0.72rem;         /* technical metadata */
+
+  --leading-tight: 1.05;
+  --leading-snug: 1.2;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.7;
+
+  --tracking-display: -0.02em;
+  --tracking-tight: -0.01em;
+  --tracking-label: 0.16em;     /* uppercase mono labels */
+  --tracking-meta: 0.08em;
+
+  /* ---------------------------------------------------------------------------
+     SPACING — 4px rhythm
+  --------------------------------------------------------------------------- */
+  --space-1: 0.25rem;   /*  4px */
+  --space-2: 0.5rem;    /*  8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.5rem;    /* 24px */
+  --space-6: 2rem;      /* 32px */
+  --space-7: 3rem;      /* 48px */
+  --space-8: 4rem;      /* 64px */
+  --space-9: 6rem;      /* 96px */
+  --space-10: 8rem;     /* 128px */
+
+  /* Section rhythm + page gutters (adaptive) */
+  --section-y: clamp(4.5rem, 3rem + 7vw, 9rem);
+  --gutter: clamp(1.25rem, 0.5rem + 3vw, 3.5rem);
+  --content-max: 1240px;
+  --measure: 60ch;     /* readable line length */
+
+  /* ---------------------------------------------------------------------------
+     SHAPE — radius (sharper for technical, moderate for interactive)
+  --------------------------------------------------------------------------- */
+  --radius-none: 0;
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+  --radius-pill: 999px;
+
+  /* Borders */
+  --border-w: 1px;
+  --border-w-strong: 1.5px;
+
+  /* ---------------------------------------------------------------------------
+     ELEVATION — consistent scale (subtle on dark; light comes from accents)
+  --------------------------------------------------------------------------- */
+  --elev-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --elev-2: 0 8px 24px -8px rgba(0, 0, 0, 0.55);
+  --elev-3: 0 24px 60px -16px rgba(0, 0, 0, 0.65);
+  --glow-hot: 0 0 0 1px rgba(255, 107, 44, 0.3), 0 12px 40px -12px rgba(255, 107, 44, 0.35);
+  --glow-cool: 0 0 0 1px rgba(70, 198, 230, 0.28), 0 12px 40px -14px rgba(70, 198, 230, 0.3);
+
+  /* ---------------------------------------------------------------------------
+     MOTION — shared tokens (unified rhythm across the whole site)
+  --------------------------------------------------------------------------- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 180ms;   /* taps, hovers */
+  --dur-base: 280ms;    /* state changes */
+  --dur-large: 380ms;   /* section / overlay transitions */
+
+  /* ---------------------------------------------------------------------------
+     Z-INDEX SCALE
+  --------------------------------------------------------------------------- */
+  --z-base: 0;
+  --z-raised: 10;
+  --z-sticky: 40;
+  --z-nav: 100;
+  --z-overlay: 500;
+  --z-modal: 1000;
+
+  color-scheme: dark;
+}
+
+/* JS-exposed motion timings (kept in sync with Framer Motion tokens in lib/motion.ts) */
